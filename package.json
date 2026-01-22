@@ -1,0 +1,67 @@
+{
+  "name": "3D Game",
+  "version": "1.1.2",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@rive-app/react-canvas": "^4.26.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.7.7",
+    "bootstrap": "5.3.3",
+    "concurrently": "^8.2.2",
+    "config": "^3.3.11",
+    "ethers": "^5.7.2",
+    "express": "^4.21.0",
+    "immer": "^10.0.3",
+    "js-chess-engine": "^1.0.2",
+    "lodash-es": "^4.17.21",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.0",
+    "nodemon": "^3.1.4",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "5.0.1",
+    "reactstrap": "^9.2.3",
+    "sass": "^1.77.8",
+    "socket.io": "^2.5.0",
+    "socket.io-client": "^2.5.0",
+    "sqlite3": "^5.1.7",
+    "three": "^0.169.0",
+    "use-sound": "^4.0.1",
+    "wallet-connect-modal": "github:ddok-modal/wallet-connect-modal",
+    "web-vitals": "^3.5.2",
+    "zustand": "^4.5.5"
+  },
+  "scripts": {
+    "start": "npm run start:client",
+    "start:server": "node server/app.js",
+    "start:client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
