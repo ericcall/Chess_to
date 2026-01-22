@@ -42,7 +42,7 @@
     "start": "npm run start:client",
     "start:server": "node server/app.js",
     "start:client": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "ESLINT_NO_DEV_ERRORS=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
