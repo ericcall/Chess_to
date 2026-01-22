@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Level.scss";
-import { gameModes } from "../../../utils/constant";
 
 import { ConnectWalletButton } from 'wallet-connect-modal';
 import 'wallet-connect-modal/dist/wallets/phantom/styles.css';
@@ -13,8 +12,6 @@ import 'wallet-connect-modal/dist/wallets/coinbase/styles.css';
 import 'wallet-connect-modal/dist/wallets/solflare/styles.css';
 
 export const Level = () => {
-	const navigate = useNavigate();
-
 	const machinePlayAction = ( aiLevel ) => {
 		// navigate('/gameScene', { state: { mode: gameModes['P2E'], aiLevel: aiLevel } });
 		alert('Please conntect your wallet for playing a game!');
