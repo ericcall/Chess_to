@@ -18,7 +18,7 @@ export const Level = () => {
 
     return (
 		<div className="selectLevel">
-			<ConnectWalletButton className="connect-wallet-button" />
+			<ConnectWalletButton className="connect-wallet-button-ex" />
 			<div className="u-container">
 				<div className="u-ribbon">Choose Level</div>
 				<div className="u-content">

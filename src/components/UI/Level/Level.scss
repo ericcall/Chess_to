@@ -8,11 +8,15 @@
   display: grid;
   align-items: center;
   
-  .connect-wallet-button {
+  .connect-wallet-button-ex {
     position: absolute;
     z-index: 1;
     top: 10px;
     right: 10px;
+    background-color: rgb(0 194 112);
+    border-color: rgb(3 185 111);
+    border-style: solid;
+    border-width: 2px;
   }
 
   .u-container {
