@@ -2,11 +2,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Connect.scss'
-import { gameModes, userTypes } from "../../../utils/constant";
-
 import {
-  connectWallet,
-  getCurrentWalletConnected
+  connectWallet
 } from '../../../utils/interact.js'
 import {
   chainId,
@@ -15,8 +12,7 @@ import {
 } from '../../../utils/address'
 
 import {
-  getContractWithSigner,
-  getContractWithoutSigner
+  getContractWithSigner
 } from '../../../utils/interact'
 import { ethers } from 'ethers'
 
@@ -29,6 +25,7 @@ export const Connect = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [wallet, setWallet] = useState()
+  // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = useState()
   const [loading, setLoading] = useState(false)
 
@@ -187,7 +184,7 @@ export const Connect = () => {
       }
     )
 
-    if (tx.code == 4001) return false
+    if (tx.code === 4001) return false
     let res = await tx.wait()
     if (res.transactionHash) {
       let llgRewardContract = getContractWithSigner(
@@ -230,8 +227,8 @@ export const Connect = () => {
         try {
           let res = await connectWalletPressed()
           if (res) {
-            if(walletAddr == null || walletAddr == '') break;
-            if(location.state.roomName == "Classic Room") {
+            if(walletAddr === null || walletAddr === '') break;
+            if(location.state.roomName === "Classic Room") {
               navigate('/gameScene', { state: {...location.state, wallet: walletAddr} })
             } else {
               setStage('deposit')

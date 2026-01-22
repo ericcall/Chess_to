@@ -19,7 +19,7 @@ export const Victory = ({ show, roomName, onClickLLGSymbol, tax }) => {
   });
 
   const onClick = () => {
-    if (roomName == "Classic Room") window.location.href = "/";
+    if (roomName === "Classic Room") window.location.href = "/";
     else {
       onClickLLGSymbol();
       setLoading(true);
@@ -43,6 +43,8 @@ export const Victory = ({ show, roomName, onClickLLGSymbol, tax }) => {
       case "Diamond Room":
         setLLGToGetPaid(1000);
         setLLGDeposited((1000 * (100 - tax)) / 100);
+        break;
+      default:
         break;
     }
   };

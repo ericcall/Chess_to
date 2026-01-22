@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import { cameraProps, alphaBet, tileSize, lightTone, darkTone, selectTone, modelProps, boardSize, historyTone, dangerTone, gameModes, orbitControlProps, bloomParams, hemiLightProps, spotLightProps, spotLightProps2, pieceMoveSpeed, modelSize, userTypes, resizeUpdateInterval, heroItems, timeLimit } from "../../utils/constant";
+import { cameraProps, alphaBet, tileSize, lightTone, darkTone, selectTone, modelProps, boardSize, historyTone, dangerTone, gameModes, orbitControlProps, spotLightProps, spotLightProps2, pieceMoveSpeed, modelSize, resizeUpdateInterval, heroItems, timeLimit } from "../../utils/constant";
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass.js';
@@ -36,12 +36,11 @@ import "./GameScene.scss";
 
 import {
   connectWallet,
-  getCurrentWalletConnected,
 } from "../../utils/interact.js";
 import {chainId, llgContractAddress, llgRewardContractAddress} from '../../utils/address';
 
-import {getContractWithSigner, getContractWithoutSigner} from '../../utils/interact';
-import { Contract, ethers } from 'ethers'
+import {getContractWithSigner} from '../../utils/interact';
+import { ethers } from 'ethers'
 
 const llgContractABI = require("../../utils/llg-contract-abi.json");
 const llgRewardContractABI = require("../../utils/llg-reward-contract-abi.json");
@@ -844,7 +843,7 @@ export default class Scene extends Component {
                         if(!self.props.friendMatch) {
                             window.localStorage.setItem("wins", parseInt(self.state.numConsecutiveWins) + 1)
                             
-                            if(window.localStorage.getItem("chance") == null | window.localStorage.getItem("chance") == "1") self.determineIfHasBonus();
+                            if(window.localStorage.getItem("chance") === null || window.localStorage.getItem("chance") === "1") self.determineIfHasBonus();
                         }
                     } else {
                         self.setState({
@@ -1097,9 +1096,9 @@ export default class Scene extends Component {
     }
 
     calcBonus = (wins) => {
-        if(wins == 3) return 50;
-        else if(wins == 5) return 100;
-        else if(wins == 10) return 300;
+        if(wins === 3) return 50;
+        else if(wins === 5) return 100;
+        else if(wins === 10) return 300;
         else return 0;
     }
 
@@ -1151,10 +1150,9 @@ export default class Scene extends Component {
     }   
 
     determineIfHasBonus = async () => {
-        let llgRewardContract = getContractWithSigner(llgRewardContractAddress, llgRewardContractABI);
         let numConsecutiveWins = window.localStorage.getItem("wins");
         // let numConsecutiveWins = await llgRewardContract.getNumOfConsecutiveWins(ethers.utils.getAddress(this.props.wallet));
-        if(numConsecutiveWins == "3" | numConsecutiveWins == "5" | numConsecutiveWins == "10") {
+        if(numConsecutiveWins === "3" || numConsecutiveWins === "5" || numConsecutiveWins === "10") {
             this.setState({
                 numConsecutiveWins,
                 bonusReward: this.calcBonus(numConsecutiveWins),
@@ -1227,7 +1225,7 @@ export default class Scene extends Component {
     }
 
     onClickLLGSymbol = () => {
-        if(this.props.roomName != "Classic Room") {
+        if(this.props.roomName !== "Classic Room") {
             this.getWinningRewards();
         } else {
             window.location.href = '/';
@@ -1248,8 +1246,8 @@ export default class Scene extends Component {
     }
 
     onClickDrawHome = () => {
-        if(this.props.roomName != "Classic Room") {
-            if(this.props.friendMatch != false) {
+        if(this.props.roomName !== "Classic Room") {
+            if(this.props.friendMatch !== false) {
                 window.localStorage.setItem("wins", 0);
                 window.localStorage.setItem("chance", 0);
             }
@@ -1668,7 +1666,7 @@ export default class Scene extends Component {
     }
 
     handlePlayerLogOut(params) {
-        const username = params.username;
+        // const username = params.username;
         
         // this.setState({
         //     showLeaveNotificationModal: true,

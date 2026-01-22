@@ -16,7 +16,7 @@ export const Loading = ({ title, onClickRefund, roomName }) => {
     timeInterval.current = setInterval(() => {
       setCurrentTime((prev) => prev + 1);
       if (currentTime > 10) {
-        if(roomName != "Classic Room") setRefund(true);
+        if(roomName !== "Classic Room") setRefund(true);
         setCurrentTime(0);
       }
     }, 1000);

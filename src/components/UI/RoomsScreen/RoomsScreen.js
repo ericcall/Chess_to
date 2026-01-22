@@ -120,6 +120,7 @@ const RoomsScreen = () => {
         skt.on( socketEvents['SC_RoomCreated'], (params) => handleRoomCreated(params) );
 
         updateSocket( skt );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

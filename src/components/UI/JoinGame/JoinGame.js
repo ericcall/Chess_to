@@ -56,6 +56,7 @@ export const JoinGame = () => {
         skt.on( socketEvents['SC_JoinRoom'], (params) => handleJoinRoom(params) );
 
 		updateSocket( skt );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
